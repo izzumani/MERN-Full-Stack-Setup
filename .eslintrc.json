@@ -1,0 +1,26 @@
+{
+  "root": true, //et root to true to make sure ESLint does not look at parent folders for more configuration
+  "env": { "browser": true }, //set the browser environment to true so that ESLint understands browser-specific globals such as document and window
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  }, //specify that we are using the latest ECMAScript version and ESM
+  "extends": [
+    //Define an extends array to extend from recommended configurations. Specifically, we extend from ESLint’s recommended rules and the recommended rules for the plugins we installed:
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/recommended",
+    "prettier" //we use prettier to disable all code style-related rules in ESLint and let Prettier handle it
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"] // we specify that ESLint should only lint .js and .jsx files:
+    }
+  ]
+}
